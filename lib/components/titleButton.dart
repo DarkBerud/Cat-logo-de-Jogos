@@ -127,9 +127,7 @@ class gameTitleButton extends StatelessWidget {
             )
           ],
         ),],
-        onPressed: (index){
-          print("clicou");
-        },
+        onPressed: (index){},
       ),
     );
   }
