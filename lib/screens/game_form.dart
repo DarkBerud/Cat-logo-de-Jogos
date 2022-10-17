@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_catalogo_jogos/components/titleButton.dart';
+import 'package:projeto_catalogo_jogos/data/game_dao.dart';
 
 class gameForm extends StatefulWidget {
   const gameForm({Key? key}) : super(key: key);
@@ -160,7 +162,16 @@ class _gameFormState extends State<gameForm> {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    GameDao().save(gameTitleButton(
+                        titleController.text,
+                        plataformController.text,
+                        genreController.text,
+                        mediaController.text,
+                        imageController.text));
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Jogo adicionado")));
+                    Navigator.pop(context);
+                  },
                   child: Text("Adicionar"),
                 )
               ],

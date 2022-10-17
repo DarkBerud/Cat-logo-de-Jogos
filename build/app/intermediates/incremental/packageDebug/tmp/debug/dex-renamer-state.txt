@@ -1,4 +1,4 @@
-#Sat Oct 15 21:54:49 BRT 2022
+#Sun Oct 16 21:26:49 BRT 2022
 base.0=/home/gustavobueno/Estudo/Flutter/projeto_catalogo_jogos/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

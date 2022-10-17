@@ -12,7 +12,7 @@ class GameDao {
 
   static const String _tablename = "consoleTable";
   static const String _title = "title";
-  static const String _plataform = "title";
+  static const String _plataform = "plataform";
   static const String _genre = "genre";
   static const String _media = "media";
   static const String _image = "image";
@@ -43,16 +43,16 @@ class GameDao {
     return gamesMap;
   }
 
-  Future<List<gameTitleButton>> findall() async {
+  Future<List<gameTitleButton>> findAll() async {
     final Database bancoDeDados = await getDatabase();
     final List<Map<String, dynamic>> result =
-        await bancoDeDados.query(_tablename);
+    await bancoDeDados.query(_tablename);
     return toList(result);
   }
 
-  List<gameTitleButton> toList(List<Map<String, dynamic>> gameMap) {
+  List<gameTitleButton> toList(List<Map<String, dynamic>> gamesMap) {
     final List<gameTitleButton> games = [];
-    for (Map<String, dynamic> linha in gameMap) {
+    for (Map<String, dynamic> linha in gamesMap) {
       final gameTitleButton game = gameTitleButton(linha[_title],
           linha[_plataform], linha[_genre], linha[_media], linha[_image]);
       games.add(game);
