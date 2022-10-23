@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
+       // home: gameForm(),
        home: consoleScreen(),
        // home: gameTitleButton("One piece", "PC", "Action", "Digital","https://srv.latostadora.com/designall.dll/monkey_d_luffy_8bit__mujer--i:14138549542514138515;d:495425;w:240;b:005195;m:1.jpg"),
     );

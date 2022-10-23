@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_catalogo_jogos/components/title.dart';
+import 'package:projeto_catalogo_jogos/screens/game_form.dart';
 
-class gameTitleButton extends StatelessWidget {
+class gameTitleButton extends StatefulWidget {
   final String title;
   final String plataform;
   final String genre;
@@ -10,8 +12,13 @@ class gameTitleButton extends StatelessWidget {
   gameTitleButton(this.title, this.plataform, this.genre, this.media,this.image, {Key? key})
       : super(key: key);
 
+  @override
+  State<gameTitleButton> createState() => _gameTitleButtonState();
+}
+
+class _gameTitleButtonState extends State<gameTitleButton> {
   bool assetOrNetwork() {
-    if (image.contains("http")) {
+    if (widget.image.contains("http")) {
       return false;
     }
     return true;
@@ -51,11 +58,11 @@ class gameTitleButton extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                         child: assetOrNetwork()
                             ? Image.asset(
-                          image,
+                          widget.image,
                           fit: BoxFit.cover,
                         )
                             : Image.network(
-                          image,
+                          widget.image,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -70,7 +77,7 @@ class gameTitleButton extends StatelessWidget {
                         SizedBox(
                           width: 250,
                           child: Text(
-                            title,
+                            widget.title,
                             style: const TextStyle(
                               decoration: TextDecoration.none,
                               fontSize: 16,
@@ -84,7 +91,7 @@ class gameTitleButton extends StatelessWidget {
                             SizedBox(
                               width: 50,
                               child: Text(
-                                plataform,
+                                widget.plataform,
                                 style: const TextStyle(
                                   decoration: TextDecoration.none,
                                   fontSize: 16,
@@ -96,7 +103,7 @@ class gameTitleButton extends StatelessWidget {
                             SizedBox(
                               width: 90,
                               child: Text(
-                                genre,
+                                widget.genre,
                                 style: const TextStyle(
                                   decoration: TextDecoration.none,
                                   fontSize: 16,
@@ -108,7 +115,7 @@ class gameTitleButton extends StatelessWidget {
                             SizedBox(
                               width: 90,
                               child: Text(
-                                media,
+                                widget.media,
                                 style: const TextStyle(
                                   decoration: TextDecoration.none,
                                   fontSize: 16,
@@ -127,7 +134,13 @@ class gameTitleButton extends StatelessWidget {
             )
           ],
         ),],
-        onPressed: (index){},
+        onPressed: (index){
+          // GameDao().delete(widget.title);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (contextNew) => gameTitle(widget.title, widget.plataform, widget.genre, widget.media, widget.image)),
+          ).then((value) => setState(() {}));
+        },
       ),
     );
   }

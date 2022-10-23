@@ -2,6 +2,8 @@ import 'package:projeto_catalogo_jogos/components/titleButton.dart';
 import 'package:projeto_catalogo_jogos/data/database.dart';
 import 'package:sqflite/sqflite.dart';
 
+import '../components/title.dart';
+
 class GameDao {
   static const String tableSql = "CREATE TABLE $_tablename("
       "$_title TEXT, "
@@ -16,6 +18,8 @@ class GameDao {
   static const String _genre = "genre";
   static const String _media = "media";
   static const String _image = "image";
+
+
 
   save(gameTitleButton tittle) async {
     final Database bancoDeDados = await getDatabase();
@@ -32,6 +36,8 @@ class GameDao {
       );
     }
   }
+
+
 
   Map<String, dynamic> toMap(gameTitleButton tittle) {
     final Map<String, dynamic> gamesMap = Map();
